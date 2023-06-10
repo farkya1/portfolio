@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ChatGPT from './ChatGPT';
 
 function App() {
   return (
@@ -10,8 +11,11 @@ function App() {
         <p>
           Adam Farkas
         </p>
+        <ChatGPT/>
         
       </header>
+
+      
     </div>
   );
 }
