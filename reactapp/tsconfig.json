@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "src/config.tsx"  ]
+, "src/config.tsx", "public/Build", "public/Build"  ]
 }

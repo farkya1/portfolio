@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import UnityGame from './UnityGame';
 import ChatGPT from './ChatGPT';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
           Adam Farkas
         </p>
         <ChatGPT/>
+        <UnityGame/>
         
       </header>
 

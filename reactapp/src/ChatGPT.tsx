@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from "axios";
 import {openaiKey} from './config'
 import { response } from 'express';
 
@@ -9,14 +9,19 @@ function ChatGPT() {
 
     const sendMessage = async () => {
         const response = await axios.post(
+            
             'https://api.openai.com/v1/chat/completions',
             {
                 messages: [
                     { role: 'system', content: 'You are a helpful assistant.' },
                     { role: 'user', content: inputText },
                 ],
+                "model": "gpt-3.5-turbo-0301",
+                
             },
+            
             {
+               
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer '+openaiKey,
@@ -25,8 +30,8 @@ function ChatGPT() {
         ).then(response=>{
             const reply = response.data.choices[0].message.content;
             setOutputText(reply);
-        }).catch(()=>{
-            setOutputText("no good")
+        }).catch(error=>{
+            setOutputText(error.message)
             return
         });
 
