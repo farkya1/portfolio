@@ -1,50 +1,51 @@
 import React, { useState } from 'react';
-import axios from "axios";
-import {openaiKey} from './config'
-import { response } from 'express';
+import {openaiKey,organizationID} from './config'
+
+
+import { Configuration, OpenAIApi,  } from "openai";
+const configuration = new Configuration({
+    apiKey: openaiKey,
+    organization:organizationID
+});
+const openai = new OpenAIApi(configuration);
 
 function ChatGPT() {
-    const [inputText, setInputText] = useState('');
+    const [inputText, setInputText] = useState('type something');
     const [outputText, setOutputText] = useState('');
-
+  
     const sendMessage = async () => {
-        const response = await axios.post(
+      try {
+        const response = await openai.createChatCompletion({
+          model: 'gpt-3.5-turbo',
+          messages: [
             
-            'https://api.openai.com/v1/chat/completions',
-            {
-                messages: [
-                    { role: 'system', content: 'You are a helpful assistant.' },
-                    { role: 'user', content: inputText },
-                ],
-                "model": "gpt-3.5-turbo-0301",
-                
-            },
-            
-            {
-               
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer '+openaiKey,
-                },
-            }
-        ).then(response=>{
-            const reply = response.data.choices[0].message.content;
-            setOutputText(reply);
-        }).catch(error=>{
-            setOutputText(error.message)
-            return
+            { role: 'user', content: "Hello World" }
+          ]
         });
 
-
+        const messageContent = response?.data?.choices?.[0]?.message?.content ?? '';
+        setOutputText(messageContent);
+        
+      } catch (error) {
+        console.error(error);
+      }
     };
+
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+          sendMessage()
+        }
+      };
 
     return (
         <div>
+            
             <input
                 type="text"
                 value={inputText}
-                onChange={(e) => setInputText(e.target.value)} />
-            <button onClick={sendMessage}>Send</button>
+                onChange={(e) => setInputText(e.target.value)} 
+                onKeyDown={handleKeyDown}
+                />
             <div>{outputText}</div>
         </div>
     );
