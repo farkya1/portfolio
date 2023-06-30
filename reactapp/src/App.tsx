@@ -12,10 +12,16 @@ function App() {
         <p>
           Adam Farkas
         </p>
-        <ChatGPT/>
-        <UnityGame/>
+
+
         
       </header>
+      <body className='App-body'>
+        <h2>Projects</h2>
+        <div><ChatGPT/></div>
+        <UnityGame/>
+
+      </body>
 
       
     </div>

@@ -18,8 +18,8 @@ function ChatGPT() {
         const response = await openai.createChatCompletion({
           model: 'gpt-3.5-turbo',
           messages: [
-            
-            { role: 'user', content: "Hello World" }
+            { role: 'system', content: 'You are a helpful assistant.' },
+            { role: 'user', content: inputText }
           ]
         });
 
@@ -32,6 +32,7 @@ function ChatGPT() {
     };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+      
         if (event.key === 'Enter') {
           sendMessage()
         }
