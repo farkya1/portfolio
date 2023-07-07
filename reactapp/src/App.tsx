@@ -19,7 +19,7 @@ function App() {
       <body className='App-body'>
         <h2>Projects</h2>
         <div><ChatGPT/></div>
-        <UnityGame/>
+        <div><UnityGame/></div>
 
       </body>
 

@@ -9,7 +9,7 @@ const [fullscreen, setFullscreen] = useState(false)
 
 
 
-  const { unityProvider, requestFullscreen} = useUnityContext({
+  const { unityProvider, requestFullscreen,} = useUnityContext({
     loaderUrl: "Unity/Build/Unity.loader.js",
     dataUrl: "Unity/Build/Unity.data.unityweb",
     frameworkUrl: "Unity/Build/Unity.framework.js.unityweb",
@@ -38,8 +38,8 @@ const [fullscreen, setFullscreen] = useState(false)
   function handleKeyDown(event: KeyboardEvent) {
     if (event.keyCode === 27 && hidden["display"]==="block") {
       setHidden({display:"none"});
-      
     }
+    
 
     
   }
