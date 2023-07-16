@@ -61,7 +61,7 @@
 .aiButtons{
   display: flex;
   flex-direction: row;
-  gap: 45%;
+  gap: 41%;
   margin: auto;
   justify-content: center;
   padding: 25px 0;

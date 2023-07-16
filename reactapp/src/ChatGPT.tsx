@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {openaiKey,organizationID} from './config'
 import axios from "axios";
+import openImage from "./openai.png"
+import googleImage from "./google.png"
 
 
 import { Configuration, OpenAIApi,  } from "openai";
@@ -20,6 +22,18 @@ function ChatGPT() {
     const [google, setGoogle] = useState('');
     const [randNum, setRandNum] = useState(0)
     const [pickNow, setPickNow] = useState(false)
+    const [reveal, setReveal] = useState(false)
+
+    const [leftStyle, setleftStyle] = useState(false);
+    const [rightStyle, setrightStyle] = useState(false);
+
+    const [buttonHide, setButtonHide] = useState(false)
+
+    useEffect(()=>{
+
+    },[reveal])
+
+    
   
     const sendMessageOpenAI = async () => {
       try {
@@ -59,6 +73,18 @@ function ChatGPT() {
 
     }
 
+      const leftTextStyle = {
+        color: leftStyle ? 'gold' : "white",
+      };
+
+      const rightTextStyle = {
+        color: rightStyle ? 'gold' : "white",
+      };
+
+      const hideButton = {
+        display: rightStyle ? 'none' : "block",
+      };
+
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
       
         if (event.key === 'Enter') {
@@ -66,6 +92,10 @@ function ChatGPT() {
           sendMessageGoogle()
           setRandNum(Math.random())
           setPickNow(true)
+          setReveal(false)
+          setleftStyle(false)
+          setrightStyle(false)
+          setButtonHide(false)
         }
       };
 
@@ -79,17 +109,26 @@ function ChatGPT() {
                 onKeyDown={handleKeyDown}
                 />
             <div className='aiContainer'>            
-              {randNum < 0.5 && <div className='firstCol'>{openAI}</div>}
-              {randNum >= 0.5 && <div className='firstCol'>{google}</div>}
+              {randNum < 0.5 && <div className='firstCol'><div>{reveal && <h3 style={leftTextStyle}>OpenAI</h3>}</div><div>{openAI}</div></div>}
+              {randNum >= 0.5 && <div className='firstCol'><div>{reveal && <h3 style={leftTextStyle}>Google</h3>}</div><div>{google}</div></div>}
 
-              {randNum > 0.5 && <div className='secCol'>{openAI}</div>}
+              {randNum > 0.5 && <div className='secCol'><div>{reveal && <h3 style={rightTextStyle}>OpenAI</h3>}</div><div>{openAI}</div></div>}
               {randNum <= 0.5 && 
-              <div className='secCol'>{google}</div>}
+              <div className='secCol'><div>{reveal && <h3 style={rightTextStyle}>Google</h3>}</div><div >{google}</div></div>
+              }
             </div>
             {pickNow && 
             <div className='aiButtons'>
-              <input className="prettyButton" type='button' value="Pick Me"/>
-              <input className="prettyButton" type='button' value="Pick Me"/>
+              <input className="prettyButton" style={hideButton} type='button' value="Pick Me" onClick={()=>{
+                setReveal(true)
+                setleftStyle(true)
+                setButtonHide(true)
+                }}/>
+              <input className="prettyButton" style={hideButton} type='button' value="Pick Me" onClick={()=>{
+                setReveal(true) 
+                setrightStyle(true)
+                setButtonHide(true)
+                }}/>
             </div>}
 
             
