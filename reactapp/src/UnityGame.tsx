@@ -1,6 +1,6 @@
 
 import { isVisible } from "@testing-library/user-event/dist/utils";
-import React,{Fragment,useState,useEffect} from "react";
+import React,{Fragment,useState} from "react";
 import { Unity, useUnityContext,} from 'react-unity-webgl';
 
 export default function UnityGame() {
@@ -30,9 +30,6 @@ const [fullscreen, setFullscreen] = useState(false)
     requestFullscreen(true);
 
     
-    
-    
-
   }
 
   function handleKeyDown(event: KeyboardEvent) {
@@ -50,7 +47,7 @@ const [fullscreen, setFullscreen] = useState(false)
   return (
     <Fragment>
       <Unity unityProvider={unityProvider} style={hidden}/>
-      <button onClick={handleClickEnterFullscreen}>Enter Fullscreen</button>
+      <button className="prettyButton" onClick={handleClickEnterFullscreen}>Press Play</button>
     </Fragment>
   );
 }

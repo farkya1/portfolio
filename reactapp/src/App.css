@@ -35,6 +35,39 @@
   color: #61dafb;
 }
 
+.prettyButton{
+  background-color: #80bade;
+  color: #124f91;
+  border: 2;
+}
+
+
+.firstCol{
+  width: 40%;
+}
+.secCol{
+  width: 40%;
+}
+.aiContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  margin: auto;
+  justify-content: center;
+  padding: 25px 0;
+
+}
+
+.aiButtons{
+  display: flex;
+  flex-direction: row;
+  gap: 45%;
+  margin: auto;
+  justify-content: center;
+  padding: 25px 0;
+
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
