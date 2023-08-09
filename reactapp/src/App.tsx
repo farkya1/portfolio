@@ -1,8 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import UnityGame from './UnityGame';
 import ChatGPT from './ChatGPT';
+import zombieImage from "./ZombieCave.png"
+import aladdinImage from "./aladdin.png"
+import ZombieCave from './ZombieCave';
+import Aladdin from './Aladdin';
 
 function App() {
   return (
@@ -19,7 +21,17 @@ function App() {
       <body className='App-body'>
         <h2>Projects</h2>
         <div><ChatGPT/></div>
-        <div><UnityGame/></div>
+
+        <h2>Unity Projects</h2>
+        <div>
+          <img className="gameImage"src={zombieImage}/>
+          <ZombieCave/>
+        </div>
+
+        <div>
+          <img className="gameImage"src={aladdinImage}/>
+          <Aladdin/>
+        </div>
 
       </body>
 

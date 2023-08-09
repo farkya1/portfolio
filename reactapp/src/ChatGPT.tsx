@@ -82,7 +82,7 @@ function ChatGPT() {
       };
 
       const hideButton = {
-        display: rightStyle ? 'none' : "block",
+        display: buttonHide ? 'none' : "block",
       };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {

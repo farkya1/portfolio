@@ -1,19 +1,20 @@
 
-import { isVisible } from "@testing-library/user-event/dist/utils";
+
 import React,{Fragment,useState} from "react";
 import { Unity, useUnityContext,} from 'react-unity-webgl';
 
-export default function UnityGame() {
+
+export default function ZombieCave() {
 const [fullscreen, setFullscreen] = useState(false)
 
 
 
 
   const { unityProvider, requestFullscreen,} = useUnityContext({
-    loaderUrl: "Unity/Build/Unity.loader.js",
-    dataUrl: "Unity/Build/Unity.data.unityweb",
-    frameworkUrl: "Unity/Build/Unity.framework.js.unityweb",
-    codeUrl: "Unity/Build/Unity.wasm.unityweb",
+    loaderUrl: "Unity/ZombieCave/Build/Unity.loader.js",
+    dataUrl: "Unity/ZombieCave/Build/Unity.data.unityweb",
+    frameworkUrl: "Unity/ZombieCave/Build/Unity.framework.js.unityweb",
+    codeUrl: "Unity/ZombieCave/Build/Unity.wasm.unityweb",
     
   });
 
@@ -45,10 +46,10 @@ const [fullscreen, setFullscreen] = useState(false)
 
 
   return (
-    <Fragment>
+    <div>
       <Unity unityProvider={unityProvider} style={hidden}/>
       <button className="prettyButton" onClick={handleClickEnterFullscreen}>Press Play</button>
-    </Fragment>
+    </div>
   );
 }
 

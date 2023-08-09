@@ -35,10 +35,17 @@
   color: #61dafb;
 }
 
+
+
+.gameImage{
+  width: 25%
+}
+
 .prettyButton{
   background-color: #80bade;
   color: #124f91;
   border: 2;
+  margin-bottom: 10px;
 }
 
 
