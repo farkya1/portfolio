@@ -75,11 +75,31 @@
 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.gameFlex{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-evenly;
+  width: 66%;
+  margin:auto;
+  align-items: center;
 }
+.gameImage{
+  width: 300px; /* Set a specific width for the small image */
+  height: auto;
+}
+
+.gameElement{
+  flex:2
+  
+}
+.gameText{
+  flex:1
+}
+
+.headerFlex{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+

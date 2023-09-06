@@ -11,10 +11,10 @@ export default function Aladdin() {
 
 
   const { unityProvider, requestFullscreen,} = useUnityContext({
-    loaderUrl: "Unity/Aladdin/Build/Aladdin.loader.js",
-    dataUrl: "Unity/Aladdin/Build/Aladdin.data.unityweb",
-    frameworkUrl: "Unity/Aladdin/Build/Aladdin.framework.js.unityweb",
-    codeUrl: "Unity/Aladdin/Build/Aladdin.wasm.unityweb",
+    loaderUrl: "Unity/MerryMe/Build/MerryMe.loader.js",
+    dataUrl: "Unity/MerryMe/Build/MerryMe.data.unityweb",
+    frameworkUrl: "Unity/MerryMe/Build/MerryMe.framework.js.unityweb",
+    codeUrl: "Unity/MerryMe/Build/MerryMe.wasm.unityweb",
     
   });
 

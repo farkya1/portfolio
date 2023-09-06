@@ -1,6 +1,6 @@
 # portfolio
 Just a simple portfolio page to help learn react and typescript
 
-Wanna implement some fun chatgpt functionality as well
+Using to show off some of my game dev projects.
 
-also embedding some of my unity projects
+Used with the help of react-unity-webgl
